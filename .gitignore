@@ -1,0 +1,19 @@
+# Virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Pytest cache
+.pytest_cache/
+
+# Generated semantic index
+semantic_index.json
+
+# IDE
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
