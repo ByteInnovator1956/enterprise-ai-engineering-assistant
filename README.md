@@ -25,6 +25,36 @@ This project explores a different approach:
 
 > **Use deterministic code analysis to establish repository structure, semantic retrieval to identify relevant code, and an LLM to reason over the resulting evidence.**
 
+## What Makes This Different
+
+Traditional LLM-based code assistants can reason about code, but they may struggle to reliably understand relationships across a repository.
+
+This system separates repository understanding into complementary components:
+
+- **Structural analysis** determines what exists and how code elements are connected.
+- **Semantic retrieval** finds code relevant to natural-language questions.
+- **Evidence assembly** expands retrieved candidates using structural relationships.
+- **LLM reasoning** interprets the assembled evidence and produces the final response.
+- **Evidence grounding** constrains repository claims to information found in the analyzed codebase.
+
+The goal is not to replace deterministic analysis with an LLM, but to use the LLM where interpretation is useful and deterministic analysis where exact repository structure matters.
+
+## Example
+
+Question:
+
+> What does `checkout` depend on?
+
+The system retrieves relevant code, follows structurally established relationships, assembles supporting evidence, and asks the reasoning model to produce a grounded explanation.
+
+Example result:
+
+```text
+checkout
+├── calculate_discount
+└── process_payment
+    └── validate_payment
+```
 ## Core Idea
 
 The system separates repository understanding into different responsibilities:
